@@ -116,7 +116,8 @@ in the layer that still holds the information it needs — see
 
 ## Build
 
-Requires JDK 17+ and Maven.
+Requires JDK 17 or later, and Maven. Both 17 and 21 work; the modules target
+17. Verified on JDK 17.
 
 ```bash
 (cd proleap-cobol-parser && mvn install -DskipTests)
@@ -124,7 +125,7 @@ Requires JDK 17+ and Maven.
 cd examples/order-report && ./run.sh
 ```
 
-`-DskipTests` is needed because 28 upstream parser tests fail by design in this
+`-DskipTests` is needed because 8 upstream parser tests fail by design in this
 fork — see [Status](#status-honestly) for why.
 
 ### Maven coordinates
@@ -142,11 +143,19 @@ fork installed under the upstream coordinates would silently change the
 behaviour of any other ProLeap project on the same machine — same GAV, two
 different artefacts, no warning.
 
-> **The JDK version matters.** Generated groups are non-static inner classes.
-> JDK 17 emits the synthetic `this$N` back-reference to the enclosing instance
-> even when unused; JDK 21 optimises it away. Anything walking generated
-> objects by reflection sees a different object graph on each. For generated
-> code, the compiler version is part of the artefact's definition — pin it.
+> **Pin the JDK you compile generated code with.** Generated COBOL groups are
+> non-static inner classes. `javac` 17 emits the synthetic `this$N`
+> back-reference to the enclosing instance even when it is unused; `javac` 21
+> omits it. Anything that walks generated objects by reflection therefore sees
+> a different object graph depending on which compiled the code.
+>
+> Both work here, for different reasons: on 17 the runtime's cycle guard in
+> `EntityServiceImpl.initialize` handles the `this$N` edge, and on 21 the field
+> is not there to begin with. What does not work is mixing them — classes
+> compiled by 21 will not load on a 17 JVM, and reflection-driven behaviour can
+> differ. Fix the version explicitly in build and run scripts rather than
+> inheriting whatever is on `PATH`; `tools/equivalence` does this through
+> `HARNESS_JAVA`.
 
 ---
 
@@ -175,19 +184,15 @@ final CobolParserParams params = new CobolParserParamsImpl();
 params.setDialect(CobolDialect.IBM_ILE);   // opt in
 ```
 
-Without that line the preprocessor behaves as upstream ProLeap always did. This
-took upstream parser failures from 28 down to 8 — the 20 caused by
-preprocessing are gone.
+Without that line the preprocessor behaves as upstream ProLeap does.
 
-The remaining 8 (`FunctionCallTest`, `PictureGreedyTest`, `TableCallTest`,
-`ProgramIdCommentEntryTest` and four NIST cases) come from the grammar itself:
-`Cobol.g4` and `CobolPreprocessor.g4` carry +375 lines of IBM i extensions, and
-a grammar cannot be switched at runtime the way a preprocessing step can.
-Fixing those means either narrowing the grammar changes or generating two
-parsers. Neither is done yet.
-
-So: standard COBOL is close to upstream behaviour but not identical, and the
-gap is now 8 known tests instead of a blanket 28.
+Eight upstream parser tests still fail even with the standard dialect
+(`FunctionCallTest`, `PictureGreedyTest`, `TableCallTest`,
+`ProgramIdCommentEntryTest` and four NIST cases). Those come from the grammar:
+`Cobol.g4` and `CobolPreprocessor.g4` carry IBM i extensions compiled into the
+generated parser, and a grammar cannot be switched at runtime the way a
+preprocessing step can. Fixing them means narrowing the grammar changes or
+building two parsers; neither is done.
 
 **Not claimed:** that generated Java is verified against the original system.
 The harness proves behaviour does not *change*; proving it is *right* needs the

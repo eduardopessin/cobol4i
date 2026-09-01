@@ -184,6 +184,6 @@ Preprocessing is text, so it can be turned off. The grammar cannot: `Cobol.g4`
 and `CobolPreprocessor.g4` carry +375 lines of IBM i extensions that are
 compiled into the generated parser.
 
-That is why 8 upstream tests still fail with the standard dialect, down from
-28 (see [Status](../README.md#status-honestly)). Closing that gap means either
+That is why 8 upstream tests still fail with the standard dialect (see
+[Status](../README.md#status-honestly)). Closing that gap means either
 narrowing the grammar changes or building two parsers — neither is done.
