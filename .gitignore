@@ -4,11 +4,6 @@ target/
 *.jar
 *.war
 
-# Local scan patterns — never commit.
-# These name the client-specific identifiers to search for; committing them
-# would publish the vocabulary the scan exists to keep out.
-patterns.local
-
 # Equivalence baselines contain program names and field values from whatever
 # codebase the harness was pointed at.
 tools/equivalence/golden/

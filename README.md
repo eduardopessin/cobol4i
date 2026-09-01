@@ -106,7 +106,6 @@ proleap-cobol/
 examples/order-report/         end-to-end demo + equivalence check
 tools/equivalence/             behavioural baselines for a whole codebase
 docs/architecture.md           the layers, and why each addition sits where it does
-scan-proprietary.sh            checks no client code leaked into the tree
 ```
 
 The IBM i support is not one component but four, at different points of the
@@ -208,4 +207,4 @@ inherits those terms per module. Work added outside those directories is MIT.
 See [LICENSING.md](LICENSING.md) for the practical consequences.
 
 No proprietary source is included. The COBOL under `examples/` was written for
-this repository; `scan-proprietary.sh` enforces that nothing else leaks in.
+this repository.
