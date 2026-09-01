@@ -1,8 +1,8 @@
-# ProLeap COBOL for IBM i
+# cobol4i
 
-Deterministic gates for migrating IBM i (AS/400) ILE COBOL to Java, so that an
-LLM can do the refactoring afterwards **and you can prove it did not change
-behaviour**.
+**COBOL for i** — deterministic gates for migrating IBM i (AS/400) ILE COBOL to
+Java, so that an LLM can do the refactoring afterwards **and you can prove it
+did not change behaviour**.
 
 This is a fork of [ProLeap](https://github.com/uwol/proleap-cobol) — an
 excellent ANTLR4-based COBOL analyzer, interpreter and transformer — extended
