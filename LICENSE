@@ -19,14 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
----
-
-NOTE: this repository vendors two upstream projects with their own licences.
-The MIT terms above cover the work added by this fork outside them.
-
-    proleap-cobol-parser/   MIT        (c) 2017 Ulrich Wolffgang
-    proleap-cobol/          AGPL-3.0   (c) 2017 Ulrich Wolffgang
-
-Code inside those directories remains under the licence in their own LICENSE
-file. See LICENSING.md for what that means in practice.

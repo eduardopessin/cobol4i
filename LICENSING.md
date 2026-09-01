@@ -1,12 +1,17 @@
 Licensing
 =========
 
-This repository is a fork of ProLeap by Ulrich Wolffgang. It contains two
-upstream projects with different licences, and modifications on top of both.
-Each module keeps the licence of the upstream project it derives from.
+The root LICENSE is MIT and covers the work added by this fork. It is
+deliberately plain MIT text so that automated licence detection recognises it.
 
-    proleap-cobol-parser/     MIT           see proleap-cobol-parser/LICENSE
-    proleap-cobol/            AGPL-3.0      see proleap-cobol/LICENSE
+**Important:** this repository vendors two upstream projects that keep their
+own licences. Code inside those directories is NOT covered by the root MIT
+licence:
+
+    proleap-cobol-parser/     MIT           (c) 2017 Ulrich Wolffgang
+    proleap-cobol/            AGPL-3.0      (c) 2017 Ulrich Wolffgang
+
+Each has its own LICENSE file, which governs everything beneath it.
 
 Modifications and additions in this fork — IBM i dialect support, the COBOL
 runtime, DDS/CL tooling, the equivalence harness and the examples — are
