@@ -1,37 +1,32 @@
-Licensing
-=========
+MIT License
 
-This repository is a fork of ProLeap by Ulrich Wolffgang. It contains two
-upstream projects with different licences, and modifications on top of both.
-Each module keeps the licence of the upstream project it derives from.
+Copyright (c) 2026 Eduardo Pessin
 
-    proleap-cobol-parser/     MIT           see proleap-cobol-parser/LICENSE
-    proleap-cobol/            AGPL-3.0      see proleap-cobol/LICENSE
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
 
-Modifications and additions in this fork — IBM i dialect support, the COBOL
-runtime, DDS/CL tooling, the equivalence harness and the examples — are
-released under the licence of the module they live in:
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
 
-    proleap-cobol-parser/     ... MIT
-    proleap-cobol/            ... AGPL-3.0
-    tools/                    ... MIT
-    examples/                 ... MIT
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
-Practical consequences
-----------------------
+---
 
-If you only need the parser, the ASG and the IBM i preprocessing (DDS copybook
-expansion, PROCESS directives), you can use proleap-cobol-parser under MIT.
+NOTE: this repository vendors two upstream projects with their own licences.
+The MIT terms above cover the work added by this fork outside them.
 
-The transformer and runtime live under proleap-cobol and are AGPL-3.0. If you
-run a modified version as a network service, AGPL requires you to offer the
-corresponding source to its users. For an offline batch migration this
-obligation does not arise, but check it against your situation.
+    proleap-cobol-parser/   MIT        (c) 2017 Ulrich Wolffgang
+    proleap-cobol/          AGPL-3.0   (c) 2017 Ulrich Wolffgang
 
-Upstream
---------
-
-    https://github.com/uwol/proleap-cobol-parser     (MIT)
-    https://github.com/uwol/proleap-cobol            (AGPL-3.0)
-
-Copyright (c) 2017 Ulrich Wolffgang for the upstream work.
+Code inside those directories remains under the licence in their own LICENSE
+file. See LICENSING.md for what that means in practice.

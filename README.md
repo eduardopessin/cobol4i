@@ -204,7 +204,8 @@ Ulrich Wolffgang. The grammars, AST/ASG, analyzer and interpreter are his work;
 this fork adds IBM i dialect support, the runtime, and the verification tooling.
 
 `proleap-cobol` is AGPL-3.0 and `proleap-cobol-parser` is MIT; this fork
-inherits those terms per module.
+inherits those terms per module. Work added outside those directories is MIT.
+See [LICENSING.md](LICENSING.md) for the practical consequences.
 
 No proprietary source is included. The COBOL under `examples/` was written for
 this repository; `scan-proprietary.sh` enforces that nothing else leaks in.
