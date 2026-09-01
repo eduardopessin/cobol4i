@@ -1,0 +1,5 @@
+# Build output
+generated/
+classes/
+refactored/classes/
+.cp/

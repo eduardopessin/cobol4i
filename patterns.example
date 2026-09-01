@@ -1,0 +1,35 @@
+# Patterns for scan-proprietary.sh — one ERE per line, matched case-insensitively.
+#
+# Copy this file to patterns.local and replace the placeholders with the
+# identifiers specific to YOUR migration project. patterns.local is
+# gitignored, so the vocabulary you search for never reaches the repository.
+#
+#     cp patterns.example patterns.local
+#     $EDITOR patterns.local
+#     ./scan-proprietary.sh
+#
+# What belongs here:
+#   - usernames, machine names and absolute paths from the migration host
+#   - the project directory name
+#   - source library / member prefixes on the IBM i side
+#   - copybook naming conventions specific to the customer
+#   - database / schema names
+#   - the customer's own name and product names
+#
+# Examples of the SHAPE (deliberately generic — replace them):
+
+# host user and project directory
+# ^myusername$
+# MyProjectDir
+
+# IBM i source library prefixes
+# [a-z]+src_cobol
+# [A-Z]{2}_P_CPY
+
+# database and schema names
+# myappdb
+# myapp_schema
+
+# customer and product names
+# acmecorp
+# acme-billing

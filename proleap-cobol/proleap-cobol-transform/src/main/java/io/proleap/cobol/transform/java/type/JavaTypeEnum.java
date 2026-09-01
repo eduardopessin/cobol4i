@@ -1,0 +1,23 @@
+package io.proleap.cobol.transform.java.type;
+
+public enum JavaTypeEnum {
+	BIGDECIMAL("BigDecimal"), BOOLEAN("Boolean"), BYTE("Byte"), DATE("java.util.Date"), DOUBLE("Double"),
+	INTEGER("Integer"), LOCAL_DATE("java.time.LocalDate"), LOCAL_DATE_TIME("java.time.LocalDateTime"),
+	LOCAL_TIME("java.time.LocalTime"), LONG("Long"), NUMBER("Number"), OBJECT("Object"), SINGLE("Double"),
+	STRING("String");
+
+	protected final String name;
+
+	private JavaTypeEnum(final String name) {
+		this.name = name;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
+}

@@ -1,0 +1,72 @@
+{
+  "ORDHDR": {
+    "columns": [
+      {
+        "name": "ORDNUM",
+        "type": "DECIMAL",
+        "length": 7
+      },
+      {
+        "name": "CUSTNM",
+        "type": "CHAR",
+        "length": 20
+      },
+      {
+        "name": "ORDDAT",
+        "type": "CHAR",
+        "length": 10
+      },
+      {
+        "name": "CURRCD",
+        "type": "CHAR",
+        "length": 3
+      }
+    ]
+  },
+  "ORDLIN": {
+    "columns": [
+      {
+        "name": "LINNUM",
+        "type": "DECIMAL",
+        "length": 3
+      },
+      {
+        "name": "ITEMCD",
+        "type": "CHAR",
+        "length": 8
+      },
+      {
+        "name": "ITEMDS",
+        "type": "VARCHAR",
+        "length": 30
+      },
+      {
+        "name": "QTYORD",
+        "type": "DECIMAL",
+        "length": 5
+      },
+      {
+        "name": "UNTPRC",
+        "type": "DECIMAL",
+        "length": 9,
+        "scale": 2
+      },
+      {
+        "name": "LINAMT",
+        "type": "DECIMAL",
+        "length": 11,
+        "scale": 2
+      },
+      {
+        "name": "*IN50",
+        "type": "CHAR",
+        "length": 1
+      },
+      {
+        "name": "*IN51",
+        "type": "CHAR",
+        "length": 1
+      }
+    ]
+  }
+}
